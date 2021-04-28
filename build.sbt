@@ -28,12 +28,16 @@ libraryDependencies ++= Seq(
   "org.apache.logging.log4j" % "log4j-api" % "2.4.1",
   "org.apache.logging.log4j" % "log4j-core" % "2.4.1",
   // postgres for DB connectivity
-  "org.postgresql" % "postgresql" % postgresVersion
+  "org.postgresql" % "postgresql" % postgresVersion,
+  "org.mongodb.spark" %% "mongo-spark-connector" % "3.0.0"
+
+
 )
 
 assemblyJarName in assembly := "spark-job-1.0.jar"
 
 // META-INF discarding
+
 assemblyMergeStrategy in assembly := {
   case PathList("META-INF", xs @ _*) => MergeStrategy.discard
   case x => MergeStrategy.first
